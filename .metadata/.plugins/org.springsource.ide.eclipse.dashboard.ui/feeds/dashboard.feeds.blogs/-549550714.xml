@@ -5,7 +5,47 @@
   <link rel="self" href="https://spring.io/blog.atom" />
   <id>http://spring.io/blog.atom</id>
   <icon>https://spring.io/favicon.ico</icon>
-  <updated>2021-01-25T16:41:00Z</updated>
+  <updated>2021-01-26T03:20:00Z</updated>
+  <entry>
+    <title>What's New in Azure Spring Cloud after GA?</title>
+    <link rel="alternate" href="https://spring.io/blog/2021/01/25/what-s-new-in-azure-spring-cloud-after-ga" />
+    <category term="engineering" label="Engineering" />
+    <author>
+      <name>Josh Long</name>
+    </author>
+    <id>tag:spring.io,2021-01-26:4346</id>
+    <updated>2021-01-26T03:20:00Z</updated>
+    <content type="html">&lt;blockquote&gt;
+  &lt;p&gt;This post was written by our friend on the Azure Spring Cloud team, the amazing &lt;a href="https://twitter.com/liangkylie"&gt;Kylie Liang (@liangkylie)&lt;/a&gt;. I interviewed her for the &lt;a href="http://bootifulpodcast.fm"&gt;&lt;em&gt;Bootiful Podcast&lt;/em&gt;&lt;/a&gt; in April 2019, too! -Josh&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;2020 was a busy year for Azure Spring Cloud service. Microsoft and VMware co-announced Azure Spring Cloud General Availability (GA). We were excited to see how Azure Spring Cloud helped customers focus on code and let us take care of the underlying infrastructure management, operation, and maintenance. We continue to prioritize our work according to customers¡¯ requests and feedback. For example, 7 more regions were enabled, and Azure Spring Cloud service is now available in &lt;a href="https://docs.microsoft.com/azure/spring-cloud/spring-cloud-faq?pivots=programming-language-java#in-which-regions-is-azure-spring-cloud-available"&gt;18&lt;/a&gt; regions of Asia Pacific, Australia, Canada, China, Europe, India, Korea, United Arab Emirates, United Kingdom, and the United States. In this blog, I¡¯ll share more about the newest features and enhancements since GA. &lt;/p&gt;&lt;h2&gt;&lt;a href="#full-apm-capabilities-w-application-insights-java-in-process-agent" class="anchor" name="full-apm-capabilities-w-application-insights-java-in-process-agent"&gt;&lt;/a&gt;Full APM Capabilities w/ Application Insights Java in-process Agent&lt;/h2&gt;
+&lt;p&gt;Application Insights is an extensible Application Performance Management (APM) service for developers and DevOps professionals. With its latest Java in-process agent you can enjoy full APM functionalities besides distributed tracing. For example, you can monitor real-time live metrics without any code changes and obtain insights into application dependencies ? MySQL, PostgreSQL, JDBC, Redis, JMS, Kafka, Netty / WebFlux, etc. Learn more &lt;a href="https://spring.io/blog/2021/01/21/bootiful-application-monitoring-with-azure-spring-cloud"&gt;from here&lt;/a&gt; about effortlessly monitoring applications and dependencies in Azure Spring Cloud!&lt;/p&gt;
+&lt;p&gt;As you know, there is always the possibility that a service may be down or having high latency when a service invokes another service. This may lead to exhaustion of the threads as they might be waiting for other requests to complete. With the implementation of the Circuit Breaker pattern, you can prevent failures from cascading and provide fallback behavior until a failing service is restored to normal operation. The new Spring Cloud Circuit Breaker framework unifies all implementations of its metrics data pipeline into Micrometer. Resilience4j is a new option for Spring developers to implement the Circuit Breaker pattern. Resilience4j works well with Spring Boot and using Micrometer libraries, it can produce metrics for monitoring. After enabling &lt;a href="https://docs.microsoft.com/azure/spring-cloud/spring-cloud-howto-circuit-breaker-metrics"&gt;Application Insights java in-process agent and dimension collection for Resilience4j metrics&lt;/a&gt;, you can collect Spring Cloud Resilience4j Circuit Breaker Metrics and display them in the Metrics blade of Application Insights. &lt;/p&gt;
+&lt;img src ="https://github.com/joshlong/blog-images/raw/master/whats-new-in-azure-spring-cloud-after-ga-25-jan-2021/Picture1.png" /&gt;&lt;h2&gt;&lt;a href="#get-outbound-public-ip-to-secure-the-communication-with-external-resources" class="anchor" name="get-outbound-public-ip-to-secure-the-communication-with-external-resources"&gt;&lt;/a&gt;Get outbound public IP to secure the communication with external resources&lt;/h2&gt;
+&lt;p&gt;Some network environments are locked down via a Firewall and allow only whitelisted IP addresses inbound to their internal network. Learn how to get &lt;a href="https://docs.microsoft.com/azure/spring-cloud/spring-cloud-howto-outbound-public-ip"&gt;static outbound public IP addresses&lt;/a&gt; of Azure Spring Cloud applications to communicate with external resources, such as databases, storage, and key vaults. &lt;/p&gt;
+&lt;p&gt;Below is an example to whitelist an Azure Spring Cloud app in Azure Database for MySQL. Azure Database for MySQL provides access security using a firewall to protect your data. You can explicitly add all the outbound IPs of your Azure Spring Cloud apps. &lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;To find the outbound public IP addresses currently used by your Azure Spring Cloud service instance in the Azure portal, click &lt;strong&gt;Networking&lt;/strong&gt; in your instance&amp;rsquo;s left-hand navigation pane. They are listed in the &lt;strong&gt;Outbound IP addresses&lt;/strong&gt; field. &lt;br/&gt; &lt;img src ="https://github.com/joshlong/blog-images/raw/master/whats-new-in-azure-spring-cloud-after-ga-25-jan-2021/Picture2.png" /&gt;&lt;/li&gt;
+  &lt;li&gt;On the MySQL server page, under Settings heading, click &lt;strong&gt;Connection Security&lt;/strong&gt; and add above outbound IPs one-by-one. &lt;br/&gt;&lt;img src ="https://github.com/joshlong/blog-images/raw/master/whats-new-in-azure-spring-cloud-after-ga-25-jan-2021/Picture3.png" /&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;h2&gt;&lt;a href="#vs-code-extension-for-azure-spring-cloud" class="anchor" name="vs-code-extension-for-azure-spring-cloud"&gt;&lt;/a&gt;VS Code extension for Azure Spring Cloud&lt;/h2&gt;
+&lt;p&gt;Besides feature requests for the Azure Spring Cloud service, we also received requests from developers about how to deploy and manage apps in their familiar environment. You can now use &lt;a href="https://docs.microsoft.com/azure/spring-cloud/spring-cloud-tutorial-intellij-deploy-apps"&gt;Azure Toolkit for IntelliJ&lt;/a&gt; or &lt;a href="http://asc-vscode/"&gt;Azure Spring Cloud extension for VS Code&lt;/a&gt; to quickly create, manage and deploy apps to Azure Spring Cloud. &lt;/p&gt;
+&lt;img src ="https://github.com/joshlong/blog-images/raw/master/whats-new-in-azure-spring-cloud-after-ga-25-jan-2021/Picture4.gif" /&gt;&lt;h2&gt;&lt;a href="#what-is-upcoming" class="anchor" name="what-is-upcoming"&gt;&lt;/a&gt;What is Upcoming&lt;/h2&gt;
+&lt;p&gt;Security, elastic scaling, and monitoring are key tenets of Azure Spring Cloud. In the following months, you will see more updates for:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Managed Virtual Network&lt;/strong&gt;: allows users to be in control of inbound and outbound network communications for Azure Spring Cloud and enables Azure Spring Cloud to interact with systems in on-premises data centers or Azure services in virtual networks.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Autoscale&lt;/strong&gt;: automates the upscaling or downscaling of the application based on load or schedule ? thus providing cost-efficiency and better performance.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;E2E TLS&lt;/strong&gt;: allows users to encrypt and securely transmit sensitive data among applications or from app to the backend.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Azure RBAC&lt;/strong&gt; for managed Spring Cloud Config Server/Service Registry: allows users to authenticate with AAD (Azure Active Directory) token for accessing to managed Spring Cloud Config Server/Service Registry by Azure Spring Cloud service.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Integration with 3rd party APM solutions&lt;/strong&gt;: enables out-of-box experience w/ 3rd party Application Performance Monitoring (APM) tools such as New Relic, App Dynamics and Dynatrace for Azure Spring Cloud apps.&lt;/li&gt;
+&lt;/ul&gt;&lt;h2&gt;&lt;a href="#get-started" class="anchor" name="get-started"&gt;&lt;/a&gt;Get Started&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href="https://docs.microsoft.com/azure/spring-cloud/spring-cloud-quickstart?tabs=Azure-CLI&amp;pivots=programming-language-java"&gt;Step by step tutorials&lt;/a&gt;: Learn the basics of Azure Spring Cloud with well-known Spring sample apps.&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://docs.microsoft.com/learn/modules/azure-spring-cloud-workshop/"&gt;Online workshop&lt;/a&gt;: Go through tasks to deploy Spring Boot microservices to Azure Spring Cloud with Azure database for MySQL.&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://docs.microsoft.com/azure/spring-cloud/spring-cloud-troubleshoot"&gt;Troubleshooting tips&lt;/a&gt;: Read common tips for troubleshooting Azure Spring Cloud server- and client-side issues.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;We are excited about the improving developer experience we are creating for Azure Spring Cloud service. Your feedback has been instrumental in shaping these features, keep the feedback coming. &lt;a href="mailto:AzureSpringCloud-Talk@service.microsoft.com"&gt;Contact us&lt;/a&gt; if you have feedback or questions. &lt;/p&gt;
+&lt;!-- rendered by Sagan Renderer Service --&gt;</content>
+  </entry>
   <entry>
     <title>Spring Cloud Task 2.2.5 Release!</title>
     <link rel="alternate" href="https://spring.io/blog/2021/01/25/spring-cloud-task-2-2-5-release" />
@@ -1026,141 +1066,6 @@ class MyContext {&#xD;
     <content type="html">&lt;p&gt;On behalf of the team and everyone who has contributed, I am pleased to announce that Spring Framework &lt;code&gt;5.3.3&lt;/code&gt; is available now.&lt;/p&gt;
 &lt;p&gt;Spring Framework &lt;code&gt;5.3.3&lt;/code&gt; includes &lt;a href="https://github.com/spring-projects/spring-framework/releases/tag/v5.3.3"&gt;40 fixes and improvements&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://projects.spring.io/spring-framework/"&gt;Project Page&lt;/a&gt; | &lt;a href="https://github.com/spring-projects/spring-framework"&gt;GitHub&lt;/a&gt; | &lt;a href="https://github.com/spring-projects/spring-framework/issues"&gt;Issues&lt;/a&gt; | &lt;a href="https://docs.spring.io/spring-framework/docs/5.3.3/spring-framework-reference"&gt;Documentation&lt;/a&gt;&lt;/p&gt;
-&lt;!-- rendered by Sagan Renderer Service --&gt;</content>
-  </entry>
-  <entry>
-    <title>YMNNALFT:  HTTP Clients</title>
-    <link rel="alternate" href="https://spring.io/blog/2021/01/11/ymnnalft-http-clients" />
-    <category term="engineering" label="Engineering" />
-    <author>
-      <name>Josh Long</name>
-    </author>
-    <id>tag:spring.io,2020-12-30:4318</id>
-    <updated>2021-01-11T11:00:00Z</updated>
-    <content type="html">&lt;p&gt;Welcome to another installment of &lt;em&gt;You May Not Need Another Library For That&lt;/em&gt; (YMNNALFT)! I&amp;rsquo;ve spent a lot of time since 2016 illuminating (or trying to, anyway!) some of the more enormous opportunities in the Spring ecosystem in &lt;a href="http://bit.ly/spring-tips-playlist"&gt;my Spring Tips videos&lt;/a&gt;. Today, however, I come to you in a different spirit, wanting to focus on the little, sometimes hidden, gems that do fantastic things and that might spare you an additional third-party dependency and its implied complexity. &lt;/p&gt;
-&lt;p&gt;Today we&amp;rsquo;re going to look at an all-in-one, handy dandy HTTP client, the &lt;code&gt;WebClient&lt;/code&gt;. &lt;/p&gt;
-&lt;p&gt;HTTP services are a common source of data. The web is an existence proof of the scalability and resilience of HTTP, and it makes a very compelling case for constraints on HTTP, like REST, when building network services. If HTTP is the lingua franca of the open web, then we must ask questions in HTTP. &lt;/p&gt;
-&lt;p&gt;There are some great libraries out there (like &lt;a href="http://hc.apache.org/"&gt;Apache HttpComponents Client&lt;/a&gt; and &lt;a href="https://square.github.io/okhttp/"&gt;OkHttp&lt;/a&gt;) that work in much the same way. If you haven&amp;rsquo;t got a particular one in mind but want a world-class option and are already using Spring, you could use the non-blocking, Netty-based HTTP client in Spring Webflux, the &lt;code&gt;WebClient&lt;/code&gt;. &lt;/p&gt;
-&lt;p&gt;The &lt;code&gt;WebClient&lt;/code&gt; is the reactive, non-blocking alternative to the &lt;code&gt;RestTemplate&lt;/code&gt;. I love the &lt;code&gt;WebClient&lt;/code&gt; because it is non-blocking: the client thread used to make the network request won&amp;rsquo;t get hung up waiting for a network service response. This implies much better scalability - threads are free to be used for something else. I also love the &lt;code&gt;WebClient&lt;/code&gt; because it uses the Reactive Streams APIs, making composition &lt;em&gt;much&lt;/em&gt; easier. We just saw some of that in the last example. &lt;/p&gt;
-&lt;p&gt;You can use the &lt;code&gt;WebClient&lt;/code&gt; to talk to any old HTTP endpoint, not just those written using non-blocking or reactive APIs on the server-side. And, even better, you can use the &lt;code&gt;WebClient&lt;/code&gt; even in otherwise non-reactive code. What if - and just hear me out here - &lt;em&gt;what if&lt;/em&gt; somebody wanted to use the &lt;code&gt;WebClient&lt;/code&gt; but couldn&amp;rsquo;t use the full reactive Spring web stack? &lt;/p&gt;
-&lt;img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmedia.giphy.com%2Fmedia%2F1M9fmo1WAFVK0%2Fgiphy.gif&amp;f=1&amp;nofb=1" /&gt;
-&lt;p&gt;Search me! I can&amp;rsquo;t imagine why you&amp;rsquo;d not want to use the reactive HTTP stack. That&amp;rsquo;s OK even if you don&amp;rsquo;t because there&amp;rsquo;s still a lot of value in using the &lt;code&gt;WebClient&lt;/code&gt; all by its lonesome. You could use the &lt;code&gt;WebClient&lt;/code&gt; to make one or more HTTP calls and then concurrently compose the results. It&amp;rsquo;s ideal for easy scatter-gather kinds of composition. This is a natural thing to want to do even if you&amp;rsquo;re not otherwise using a reactive HTTP runtime, as might be the case if you&amp;rsquo;re running in a Servlet environment. &lt;/p&gt;
-&lt;p&gt;You&amp;rsquo;ll need the following dependencies to get the &lt;code&gt;WebClient&lt;/code&gt; on the classpath. &lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;Reactive Web on &lt;a href="http://start.spring.io"&gt;the Spring Initializr&lt;/a&gt; - &lt;code&gt;org.springframework.boot&lt;/code&gt; : &lt;code&gt;spring-boot-starter-webflux&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Let&amp;rsquo;s look at some code. This example does two different things (concurrently): &lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;Initializes a new project using the HTTP API that powers &lt;a href="http://start.spring.io"&gt;the Spring Initializr&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;It retrieves all of the active open-source Spring projects using the Spring API&lt;/li&gt;
-&lt;/ul&gt;
-&lt;pre&gt;&lt;code class="prettyprint java"&gt;package bootiful.httpclient.webclient;&#xD;
-&#xD;
-import lombok.ToString;&#xD;
-import org.springframework.beans.factory.annotation.Value;&#xD;
-import org.springframework.boot.SpringApplication;&#xD;
-import org.springframework.boot.autoconfigure.SpringBootApplication;&#xD;
-import org.springframework.boot.context.event.ApplicationReadyEvent;&#xD;
-import org.springframework.context.ApplicationListener;&#xD;
-import org.springframework.context.annotation.Bean;&#xD;
-import org.springframework.core.io.buffer.DataBuffer;&#xD;
-import org.springframework.core.io.buffer.DataBufferUtils;&#xD;
-import org.springframework.http.MediaType;&#xD;
-import org.springframework.scheduling.annotation.EnableAsync;&#xD;
-import org.springframework.web.reactive.function.client.WebClient;&#xD;
-import reactor.core.publisher.Mono;&#xD;
-&#xD;
-import java.net.URI;&#xD;
-import java.nio.file.Path;&#xD;
-import java.util.ArrayList;&#xD;
-import java.util.Collection;&#xD;
-&#xD;
-import static java.nio.file.StandardOpenOption.CREATE;&#xD;
-&#xD;
-@EnableAsync&#xD;
-@SpringBootApplication&#xD;
-public class BootifulApplication {&#xD;
-&#xD;
-	public static void main(String[] args) {&#xD;
-		SpringApplication.run(BootifulApplication.class, args);&#xD;
-	}&#xD;
-&#xD;
-	@Bean&#xD;
-	WebClient webClient(WebClient.Builder builder) {&#xD;
-		return builder//&#xD;
-				.filter(//&#xD;
-						(clientRequest, exchangeFunction) -&amp;gt; exchangeFunction//&#xD;
-								.exchange(clientRequest)//&#xD;
-								.doOnNext(response -&amp;gt; System.out.println(&amp;quot;got a WebClient response: &amp;quot; + response))//&#xD;
-				) //&#xD;
-				.build();&#xD;
-	}&#xD;
-&#xD;
-	@Bean&#xD;
-	ApplicationListener&amp;lt;ApplicationReadyEvent&amp;gt; ready(@Value(&amp;quot;file://${user.home}/Desktop/output.zip&amp;quot;) Path output,&#xD;
-			WebClient client) {&#xD;
-&#xD;
-		return event -&amp;gt; {&#xD;
-&#xD;
-			// initialize a new Spring Boot project .zip archive&#xD;
-			Mono&amp;lt;DataBuffer&amp;gt; db = client.get()//&#xD;
-					.uri(URI.create(&amp;quot;https://start.spring.io/starter.zip&amp;quot;))//&#xD;
-					.accept(MediaType.APPLICATION_OCTET_STREAM)//&#xD;
-					.retrieve()//&#xD;
-					.bodyToMono(DataBuffer.class);&#xD;
-&#xD;
-			// gets written out to ~/output.zip&#xD;
-			Mono&amp;lt;Boolean&amp;gt; write = DataBufferUtils.write(db, output, CREATE).thenReturn(true);&#xD;
-&#xD;
-			// enumerate all the active Spring projects using the&#xD;
-			// JSON API while we&amp;#39;re at it...&#xD;
-			Mono&amp;lt;ProjectsResponse&amp;gt; json = client//&#xD;
-					.get()//&#xD;
-					.uri(URI.create(&amp;quot;https://spring.io/api/projects&amp;quot;))//&#xD;
-					.retrieve()//&#xD;
-					.bodyToMono(ProjectsResponse.class);&#xD;
-&#xD;
-			// look ma! No threading code! this will launch both network&#xD;
-			// calls (the .zip and the json) at the same time&#xD;
-			Mono.zip(write, json).subscribe(tuple -&amp;gt; enumerate(tuple.getT2()));&#xD;
-		};&#xD;
-	}&#xD;
-&#xD;
-	private void enumerate(ProjectsResponse pr) {&#xD;
-		pr._embedded //&#xD;
-				.projects //&#xD;
-						.stream() //&#xD;
-						.filter(p -&amp;gt; p.status.equalsIgnoreCase(&amp;quot;active&amp;quot;)) //&#xD;
-						.forEach(project -&amp;gt; System.out.println(project.toString()));&#xD;
-	}&#xD;
-&#xD;
-}&#xD;
-&#xD;
-@ToString&#xD;
-class ProjectsResponse {&#xD;
-&#xD;
-	public Embedded _embedded = new Embedded();&#xD;
-&#xD;
-	@ToString&#xD;
-	public static class Project {&#xD;
-&#xD;
-		public String name, slug, status, repositoryUrl;&#xD;
-&#xD;
-	}&#xD;
-&#xD;
-	@ToString&#xD;
-	public static class Embedded {&#xD;
-&#xD;
-		public Collection&amp;lt;Project&amp;gt; projects = new ArrayList&amp;lt;&amp;gt;();&#xD;
-&#xD;
-	}&#xD;
-&#xD;
-}
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;If you want to bring in the &lt;code&gt;WebClient,&lt;/code&gt; but _ don&amp;rsquo;t_ want to use the rest of the reactive web stack, then you&amp;rsquo;ll need to tell Spring Boot. Spring Boot will attempt to standup a Netty-based Spring Webflux environment, otherwise. You&amp;rsquo;ll need the following configuration in your &lt;code&gt;application.properties&lt;/code&gt;. &lt;/p&gt;
-&lt;pre&gt;&lt;code class="prettyprint properties"&gt;spring.main.web-application-type=none
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Did you like this gem at a glance approach? Did you learn anything? As always, I&amp;rsquo;m keen on hearing from you, so &lt;a href="http://twitter.com/starbuxman"&gt;please sound off on Twitter (@starbuxman) &lt;/a&gt;! I&amp;rsquo;ll be back with another installment of &lt;em&gt;YMNNALFT&lt;/em&gt;, so be sure not to miss that. &lt;/p&gt;
 &lt;!-- rendered by Sagan Renderer Service --&gt;</content>
   </entry>
 </feed>
