@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aop-reference-model>
+<aop-project name="springTiles"/>
+<aop-project name="cjs200810"/>
+<aop-project name="springDb"/>
+<aop-project name="springInterceptor"/>
+<aop-project name="springTest"/>
+</aop-reference-model>

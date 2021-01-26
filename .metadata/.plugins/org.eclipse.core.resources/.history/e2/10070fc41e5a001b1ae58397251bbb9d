@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.spring.cjs200810.dao.GuestDao">
+	<select id="selectList" resultType="com.spring.cjs200810.vo.GuestVo">
+		select * from guest2;
+	</select>
+	<insert id="insertList">
+		insert into guest2(name,email,homepage,hostip,content) values(#{vo.name},#{vo.email},#{vo.homepage},#{vo.content});
+	</insert>
+	
+</mapper>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<bean id="doctor" class="com.spring.springTest.ex8.Doctor"/>
+	<bean id="firefighter" class="com.spring.springTest.ex8.FireFighter"/>
+	<bean id="policeman" class="com.spring.springTest.ex8.Policeman"/>
+
+</beans>

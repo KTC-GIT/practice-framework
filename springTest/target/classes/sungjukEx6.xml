@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<bean id="calEx6" class="com.spring.springTest.ex6.CalculatorEx6"/>
+	<bean id="vo" class="com.spring.springTest.vo.SungjukEx6Vo">
+		<property name="name" value="홍길동"/>
+		<property name="kor" value="80"/>
+		<property name="eng" value="70"/>
+		
+		<property name="calculatorEx6">
+			<ref bean="calEx6"/>
+		</property>
+	</bean>
+		
+	
+
+</beans>

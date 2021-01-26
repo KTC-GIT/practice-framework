@@ -1,0 +1,43 @@
+package com.spring.cjs200810;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+
+import com.spring.cjs200810.service.GuestService;
+import com.spring.cjs200810.vo.GuestVo;
+
+@Controller
+@RequestMapping("/guest")
+public class GuestController {
+	@Autowired
+	GuestService gService;
+	
+	@RequestMapping(value="/gList",method=RequestMethod.GET)
+	public String gListGet(Model model) {
+		List<GuestVo> list = gService.selectgList();
+		model.addAttribute("list", list);
+		
+		return "guest/gList";
+	}
+	@RequestMapping(value="/gWrite",method=RequestMethod.GET)
+	public String gWriteGet() {
+		return "guest/gWrite";
+	}
+	@RequestMapping(value="/gWrite",method=RequestMethod.POST)
+	public String gWritePost(GuestVo vo,Model model) {
+		String ip="";
+		vo.setHostip(ip);
+		gService.insertgList(vo);
+		
+		List<GuestVo> list = gService.selectgList();
+		model.addAttribute("list",list);
+		
+		return "guest/gList";
+	}
+	
+}
