@@ -22,6 +22,11 @@
 	    <c:when test="${id == null}">
 	    	<a href="${contextpath}/member/login" class="w3-bar-item w3-button w3-padding-large w3-hide-small w3-right">LOGIN</a>
 	    </c:when>
+	    <c:when test="${id == 'admin'}">
+	    	<a href="${contextpath}/member/mypage" class="w3-bar-item w3-button w3-padding-large w3-hide-small w3-right">MY</a>
+	    	<a href="${contextpath}/admin/adMain" class="w3-bar-item w3-button w3-padding-large w3-hide-small w3-right">ADMIN</a>
+	    	<a href="${contextpath}/member/logout" class="w3-bar-item w3-button w3-padding-large w3-hide-small w3-right">LOGOUT</a>
+	    </c:when>
 	    <c:otherwise>
 	    	<a href="${contextpath}/member/mypage" class="w3-bar-item w3-button w3-padding-large w3-hide-small w3-right">MY</a>
 	    	<a href="${contextpath}/member/logout" class="w3-bar-item w3-button w3-padding-large w3-hide-small w3-right">LOGOUT</a>
@@ -35,7 +40,7 @@
         <a href="#" class="w3-bar-item w3-button">Study3</a>
       </div>
     </div>
-    <a href="javascript:void(0)" class="w3-padding-large w3-hover-red w3-hide-small w3-right"><i class="fa fa-search"></i></a>
+    <!-- <a href="javascript:void(0)" class="w3-padding-large w3-hover-red w3-hide-small w3-right"><i class="fa fa-search"></i></a> -->
   </div>
 </div>
 
@@ -45,13 +50,19 @@
   <a href="${contextpath}/board/bList" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">BOARD</a>
   <a href="${contextpath}/pds/pList" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">DOWNLOAD</a>
   <c:choose>
-    <c:when test="${id == null}">
-    	<a href="${contextpath}/member/login" class="w3-bar-item w3-button w3-padding-large w3-hide-small">LOGIN</a>
-    </c:when>
-    <c:otherwise>
-    	<a href="${contextpath}/member/logout" class="w3-bar-item w3-button w3-padding-large w3-hide-small">LOGOUT</a>
-    </c:otherwise>
-  </c:choose>
+	    <c:when test="${id == null}">
+	    	<a href="${contextpath}/member/login" class="w3-bar-item w3-button w3-padding-large w3-hide-small w3-right">LOGIN</a>
+	    </c:when>
+	    <c:when test="${id == 'admin'}">
+	    	<a href="${contextpath}/member/mypage" class="w3-bar-item w3-button w3-padding-large w3-hide-small w3-right">MY</a>
+	    	<a href="${contextpath}/admin/adMain" class="w3-bar-item w3-button w3-padding-large w3-hide-small w3-right">ADMIN</a>
+	    	<a href="${contextpath}/member/logout" class="w3-bar-item w3-button w3-padding-large w3-hide-small w3-right">LOGOUT</a>
+	    </c:when>
+	    <c:otherwise>
+	    	<a href="${contextpath}/member/mypage" class="w3-bar-item w3-button w3-padding-large w3-hide-small w3-right">MY</a>
+	    	<a href="${contextpath}/member/logout" class="w3-bar-item w3-button w3-padding-large w3-hide-small w3-right">LOGOUT</a>
+	    </c:otherwise>
+    </c:choose>
   <a href="#" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">MERCH</a>
 </div>
 </body>

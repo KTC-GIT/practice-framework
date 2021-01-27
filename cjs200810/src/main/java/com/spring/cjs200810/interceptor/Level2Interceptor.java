@@ -14,7 +14,7 @@ public class Level2Interceptor extends HandlerInterceptorAdapter{
 		int level = session.getAttribute("level")==null?99:(int)session.getAttribute("level");
 		
 		if(level>2) {
-			RequestDispatcher rd = request.getRequestDispatcher(request.getContextPath()+"msg/level2Gatekeeper");
+			RequestDispatcher rd = request.getRequestDispatcher("/msg/level2Gatekeeper");
 			rd.forward(request, response);
 		}
 		

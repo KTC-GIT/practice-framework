@@ -274,6 +274,8 @@
 <style>
 	#mTable{
 		text-align:left;
+		margin-right:0;
+		margin-left:0;
 	}
 	.smalltext{
 		padding:5px;
@@ -288,9 +290,9 @@
 <%@include file="/WEB-INF/views/include/nav.jsp" %>
 <%@include file="/WEB-INF/views/include/slide.jsp" %>
 <form id="cAForm" method="POST">
-<div class="w3-container w3-content w3-center w3-padding-64" style="max-width:800px">
+<div class="w3-container w3-content w3-center w3-padding-64" style="max-width:850px">
 	<h2 class="w3-wide" style="text-align:center;">회 원 가 입</h2>
-	<table id="mTable">
+	<table class="w3-content w3-left" id="mTable">
 		<tr>
 			<td><label for="id">아이디</label> </td>
 			<td id="idText">
@@ -347,14 +349,14 @@
 			<td><label>주소</label> </td>
 			<td>
 				<input type="text" id="sample4_postcode"  class="smalltext" name="zipCode" placeholder="우편번호" readonly/>
-				<input type="button" class="w3-button w3-blue w3-section w3-center" id="searchAddress" onclick="sample4_execDaumPostcode()" value="주소 찾기"><br>
+				<input type="button" class="w3-button w3-blue w3-section w3-center" id="searchAddress" onclick="sample4_execDaumPostcode()" value="주소 찾기"><br/>
 				<input type="text" id="sample4_roadAddress" class="w3-input w3-border" name="address1" placeholder="도로명주소" readonly/><br/>
 				<span id="guide" style="color:#999;display:none"></span>
 				<input type="text" id="sample4_detailAddress" name="address2" class="w3-input w3-border" placeholder="상세주소">
 			</td>
 		</tr>
 	</table>
-	<div style="padding-top:20px;">
+	<div class="w3-container w3-content w3-center w3-padding-64">
 		<input type="button" class="w3-button w3-blue w3-section w3-center" id="submitBtn" value="가입"/>
 		<input type="button" class="w3-button w3-grey w3-section w3-center" id="cancelBtn" value="취소"/>
 	</div>

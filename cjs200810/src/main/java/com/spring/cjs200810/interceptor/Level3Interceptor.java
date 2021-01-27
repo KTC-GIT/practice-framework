@@ -14,7 +14,7 @@ public class Level3Interceptor extends HandlerInterceptorAdapter{
 		int level = session.getAttribute("level")==null?99:(int)session.getAttribute("level");
 		
 		if(level>3) {
-			RequestDispatcher rd = request.getRequestDispatcher(request.getContextPath()+"msg/level3Gatekeeper");
+			RequestDispatcher rd = request.getRequestDispatcher("/msg/level3Gatekeeper");
 			rd.forward(request, response);
 		}
 		

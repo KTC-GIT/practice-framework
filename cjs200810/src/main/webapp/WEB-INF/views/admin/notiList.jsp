@@ -8,32 +8,42 @@
 <head>
 <meta charset="UTF-8">
 <title>공 지 사 항 리 스 트</title>
+<style>
+	td{
+		background-color:
+	}
+	h2{
+		text-align : center;
+	}
+</style>
 </head>
 <body>
 <%@include file="/WEB-INF/views/include/nav.jsp" %>
 <%@include file="/WEB-INF/views/include/slide.jsp" %>
-<table>
-	<tr>
-		<th>번호</th>
-		<th>제목</th>
-		<th>작성자</th>
-		<th>공지시작</th>
-		<th>공지끝</th>
-		<th>팝업여부</th>
+<h2>공 지 사 항 리 스 트</h2>
+<p><a href=""><input type="button" value="공지사항 작성" /></a></p>
+<table class="w3-container w3-content w3-center w3-padding-64">
+	<tr class="w3-row w3-padding-32">
+		<th class="w3-container w3-content w3-padding-25 w3-grey">번호</th>
+		<th class="w3-container w3-content w3-padding-25 w3-grey">제목</th>
+		<th class="w3-container w3-content w3-padding-25 w3-grey">작성자</th>
+		<th class="w3-container w3-content w3-padding-25 w3-grey">공지시작</th>
+		<th class="w3-container w3-content w3-padding-25 w3-grey">공지끝</th>
+		<th class="w3-container w3-content w3-padding-25 w3-grey">팝업여부</th>
 	</tr>
 	<c:choose>
 		<c:when test="${list==null}">
-			<tr><td colspan="6">작성된 공지사항이 없습니다.</td></tr>
+			<tr class="w3-row w3-padding-32"><td colspan="6">작성된 공지사항이 없습니다.</td></tr>
 		</c:when>
 		<c:otherwise>
 			<c:forEach var="vo" items="${list}">
-				<tr>
-					<td>${vo.idx}</td>
-					<td>${vo.title}</td>
-					<td>${vo.name}</td>
-					<td>${vo.startDate}</td>
-					<td>${vo.endDate}</td>
-					<td>${vo.popupSw}</td>
+				<tr class="w3-row w3-padding-32">
+					<td class="w3-padding-21">${vo.idx}</td>
+					<td class="w3-padding-21">${vo.title}</td>
+					<td class="w3-padding-21">${vo.name}</td>
+					<td class="w3-padding-21">${vo.startDate}</td>
+					<td class="w3-padding-21">${vo.endDate}</td>
+					<td class="w3-padding-21">${vo.popupSw}</td>
 				</tr>
 			</c:forEach>
 		</c:otherwise>

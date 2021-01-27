@@ -15,10 +15,8 @@
 <h2>관리자 화면</h2>
 <p>
 	<br/>
-	<a href="${contextpath}/admin/notiList">공지사항 리스트</a> |
-	<a href=""></a> |
-	<a href=""></a> |
-	<a href=""></a> |
+	<a href="${contextpath}/notify/notiList">공지사항 리스트</a> |
+	<a href="">회원관리</a> |
 </p>
 <%@include file="/WEB-INF/views/include/footer.jsp" %>
 </body>

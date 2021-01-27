@@ -47,6 +47,7 @@
 		</interceptor>
 		<interceptor>
 			<mapping path="/admin/**"/>
+			<mapping path="/notify/**"/>
 			<beans:ref bean="level0Interceptor"/>
 		</interceptor>
 	</interceptors>
