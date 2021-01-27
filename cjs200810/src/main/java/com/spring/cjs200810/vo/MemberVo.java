@@ -15,6 +15,7 @@ public class MemberVo {
 	private Timestamp joindate;
 	private String joindateStr;
 	private String latestLogin;
+	private int level;
 	
 	
 	
@@ -85,6 +86,13 @@ public class MemberVo {
 	public void setLatestLogin(String latestLogin) {
 		this.latestLogin = latestLogin;
 	}
+	public int getLevel() {
+		return level;
+	}
+	public void setLevel(int level) {
+		this.level = level;
+	}
+	
 	
 	
 }

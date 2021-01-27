@@ -90,6 +90,7 @@ public class MemberController {
 			if(id.equals(vo.getId()) && passwordEncoder.matches(pw,vo.getPw())) {
 				result =  1;
 				session.setAttribute("id", id);
+				session.setAttribute("level", vo.getLevel());
 			}
 			else {
 				result =  0;
@@ -99,6 +100,7 @@ public class MemberController {
 		@RequestMapping(value="/logout",method=RequestMethod.GET)
 		public String logoutGet(HttpSession session, Model model) {
 			session.removeAttribute("id");
+			session.removeAttribute("level");
 			
 			model.addAttribute("msg", "로그아웃 되었습니다");
 			model.addAttribute("location", "h");
