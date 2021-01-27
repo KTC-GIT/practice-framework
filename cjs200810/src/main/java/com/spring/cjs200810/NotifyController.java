@@ -24,6 +24,11 @@ public class NotifyController {
 		
 		model.addAttribute("list", list);
 		
-		return "admin/notiList";
+		return "admin/notify/notiList";
+	}
+	
+	@RequestMapping("/notiWrite")
+	public String notiWriteGet() {
+		return "admin/notify/notiWrite";
 	}
 }
