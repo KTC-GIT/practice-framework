@@ -19,4 +19,10 @@ public class NotifyServiceImp implements NotifyService {
 		
 		return nDao.selectList();
 	}
+
+	@Override
+	public void insertNoti(NotifyVo vo) {
+		nDao.insertNoti(vo);
+		
+	}
 }

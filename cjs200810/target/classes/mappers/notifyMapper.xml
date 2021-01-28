@@ -5,4 +5,7 @@
 	<select id="selectList" resultType="com.spring.cjs200810.vo.NotifyVo">
 		select * from notify;
 	</select> 
+	<insert id="insertNoti">
+		insert into notify(title,startDate,endDate,content,popupSw) values(#{vo.title},#{vo.startDate},#{vo.endDate},#{vo.content},#{vo.popupSw});
+	</insert>
 </mapper>

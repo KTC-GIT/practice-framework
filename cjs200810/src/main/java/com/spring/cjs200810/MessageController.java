@@ -10,19 +10,23 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @RequestMapping("/msg")
 public class MessageController {
 	@RequestMapping(value="/{msgFlag}",method=RequestMethod.GET)
-	public String msgFlagGet(@PathVariable String msgFlag,Model model) {
+	public String msgFlagGet(@PathVariable String msgFlag, Model model) {
 		
 		if(msgFlag.equals("level0Gatekeeper")) {
 			model.addAttribute("msg", "관리자만 사용가능합니다.");
-			model.addAttribute("url", "h");
+			model.addAttribute("location", "h");
 		}
 		else if(msgFlag.equals("level2Gatekeeper")) {
 			model.addAttribute("msg", "우수회원만 사용가능합니다.");
-			model.addAttribute("url", "h");
+			model.addAttribute("location", "h");
 		}
 		else if(msgFlag.equals("level3Gatekeeper")) {
 			model.addAttribute("msg", "정회원만 사용가능합니다.");
-			model.addAttribute("url", "h");
+			model.addAttribute("location", "h");
+		}
+		else if(msgFlag.equals("notiWriteComplete")) {
+			model.addAttribute("msg", "작성완료하였습니다");
+			model.addAttribute("location", "notify/notiList");
 		}
 		
 		return "include/msg";

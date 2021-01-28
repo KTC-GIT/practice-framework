@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.spring.cjs200810.service.NotifyService;
 import com.spring.cjs200810.vo.NotifyVo;
@@ -30,5 +31,11 @@ public class NotifyController {
 	@RequestMapping("/notiWrite")
 	public String notiWriteGet() {
 		return "admin/notify/notiWrite";
+	}
+	@RequestMapping(value="/notiWrite",method=RequestMethod.POST)
+	public String notiWritePost(NotifyVo vo) {
+		nService.insertNoti(vo); 
+		
+		return "redirect:/msg/notiWriteComplete";
 	}
 }
