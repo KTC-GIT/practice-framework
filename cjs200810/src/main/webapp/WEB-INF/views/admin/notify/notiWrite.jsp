@@ -84,8 +84,9 @@ $(document).ready(function(){
 <body>
 <%@include file="/WEB-INF/views/include/nav.jsp" %>
 <%@include file="/WEB-INF/views/include/slide.jsp" %>
-<div class="w3-content w3-center" style="max-width:900px;margin-top:46px">
+<div class="w3-content w3-center" style="max-width:2000px;margin-top:46px">
 	<h2>공 지 사 항 작 성</h2>
+	<%@include file="/WEB-INF/views/admin/adNav.jsp" %>
 	<form id="notiWriteForm" method="post">
 	<div class="w3-container w3-content w3-center w3-padding-64">
 		<ul>
@@ -99,8 +100,8 @@ $(document).ready(function(){
 				<input type="radio" id="popupSwN" name="popupSw" value="N" checked/>아니오
 			</li>
 			<li>
-				<input type="button" id="submitBtn" value="작성완료"/>
-				<input type="button" id="cancelBtn" value="취소"/>
+				<input type="button" id="submitBtn" value="작성완료" class="w3-button w3-blue"/>
+				<input type="button" id="cancelBtn" value="취소" class="w3-button w3-grey"/>
 			</li>
 		</ul>
 	</div>

@@ -26,12 +26,7 @@
 <%@include file="/WEB-INF/views/include/slide.jsp" %>
 <div class="w3-container w3-content w3-center w3-padding-64" style="max-width:2000px">
 	<h2>관리자 화면</h2>
-	<div class="w3-content w3-left" style="max-width:200px;height:700px;background-color:#c8c8c8;padding:10px;">
-		<ul>
-			<li><a href="${contextpath}/notify/notiList">공지사항</a></li>
-			<li><a href="">회원관리</a></li>
-		</ul>
-	</div>
+<%@include file="/WEB-INF/views/admin/adNav.jsp" %>
 		
 </div>
 <!-- 좌측 메뉴 구성 -->

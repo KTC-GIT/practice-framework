@@ -91,6 +91,7 @@ public class MemberController {
 				result =  1;
 				session.setAttribute("id", id);
 				session.setAttribute("level", vo.getLevel());
+				session.setAttribute("nick", vo.getNick());
 			}
 			else {
 				result =  0;

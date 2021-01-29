@@ -38,4 +38,13 @@ public class NotifyController {
 		
 		return "redirect:/msg/notiWriteComplete";
 	}
+	@RequestMapping("/mNotiList")
+	public String mNotiListGet(Model model) {
+		
+		List<NotifyVo> list = nService.selectList();
+		
+		model.addAttribute("list", list);
+		
+		return "notify/notiList";
+	}
 }

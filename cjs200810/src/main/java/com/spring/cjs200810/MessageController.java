@@ -14,15 +14,15 @@ public class MessageController {
 		
 		if(msgFlag.equals("level0Gatekeeper")) {
 			model.addAttribute("msg", "관리자만 사용가능합니다.");
-			model.addAttribute("location", "h");
+			model.addAttribute("location", "member/login");
 		}
 		else if(msgFlag.equals("level2Gatekeeper")) {
 			model.addAttribute("msg", "우수회원만 사용가능합니다.");
-			model.addAttribute("location", "h");
+			model.addAttribute("location", "member/login");
 		}
 		else if(msgFlag.equals("level3Gatekeeper")) {
 			model.addAttribute("msg", "정회원만 사용가능합니다.");
-			model.addAttribute("location", "h");
+			model.addAttribute("location", "member/login");
 		}
 		else if(msgFlag.equals("notiWriteComplete")) {
 			model.addAttribute("msg", "작성완료하였습니다");
