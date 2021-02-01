@@ -1,5 +1,0 @@
-package com.spring.springInterceptor.interceptor;
-
-public class ShopInterceptor {
-
-}

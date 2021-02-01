@@ -28,6 +28,10 @@ public class MessageController {
 			model.addAttribute("msg", "작성완료하였습니다");
 			model.addAttribute("location", "notify/notiList");
 		}
+		else if(msgFlag.equals("writeAlarm")) {
+			model.addAttribute("msg", "게시글이 작성되었습니다");
+			model.addAttribute("location", "board/bList");
+		}
 		
 		return "include/msg";
 	}

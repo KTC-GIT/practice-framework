@@ -2,5 +2,16 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.spring.cjs200810.dao.BoardDao">
-	
+	<select id="selectList" resultType="com.spring.cjs200810.vo.BoardVo">
+		select * from board2;
+	</select>
+	<insert id="insertBoard">
+		insert into board2(nick,title,hostip,content) values(#{vo.nick},#{vo.title},#{vo.hostip},#{vo.content});
+	</insert>
+	<select id="selectByIdx" resultType="com.spring.cjs200810.vo.BoardVo">
+		select * from board2 where idx=#{idx};
+	</select>
+	<update id="updatePlusHits">
+		update board2 set hits=#{hits} where idx=#{idx};
+	</update>
 </mapper>
