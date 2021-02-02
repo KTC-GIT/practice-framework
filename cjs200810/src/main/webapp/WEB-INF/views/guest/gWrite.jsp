@@ -8,12 +8,20 @@
 <head>
 <meta charset="UTF-8">
 <title>방명록 쓰기</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="//cdn.ckeditor.com/4.16.0/standard/ckeditor.js"></script>
+<script>
+$(document).ready(function(){
+	CKEDITOR.replace('content',{
+		width:600,
+		height:300,
+		filebrowserUploadUrl:"${contextpath}/file/uploadImg"
+	});
+});
+</script>
 <style>
-	.container{
-		width:600px;
-		margin-right:auto;
-		margin-left:auto;
-		text-align:center;
+	input[type="text"]{
+		padding:7px;
 	}
 </style>
 </head>
@@ -21,18 +29,36 @@
 <%@include file="/WEB-INF/views/include/nav.jsp" %>
 <%@include file="/WEB-INF/views/include/slide.jsp" %>
 <form method="POST">
-	<div class="container">
-		<div>
-			<h2>방명록 쓰기</h2>
-			<p>이름:<input type="text" name="name"/></p>
-			<p>이메일:<input type="text" name="email"/></p>
-			<p>홈페이지:<input type="text" name="homepage"/></p>
-			<p>내용:<textarea name="content"></textarea></p>
-		</div>
-		<div style="text-align:center;">
-			<input type="submit" value="글 작성"/>
-			<input type="button" value="메인으로" onclick="javascript:location_href='${contextpath}/h';"/>
-		</div>
+	<div class="w3-content w3-center" style="max-width:2000px;margin-top:46px">
+		<table class="w3-content">
+			<tr>
+				<td>
+					<h2>방명록 쓰기</h2>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<input type="text" name="name" size="30" placeholder="이름"/>
+					<input type="text" name="email" size="30" placeholder="이메일"/>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<input type="text" name="homepage" size="65" placeholder="홈페이지"/>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<textarea name="content" id="content" placeholder="내용을 여기에 입력." style="width:500px;height:300px;"></textarea>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<input type="submit" value="글 작성" class="w3-button w3-blue"/>
+					<input type="button" value="메인으로" class="w3-button w3-grey" onclick="javascript:location.href='${contextpath}/h';"/>
+				</td>
+			</tr>
+		</table>
 	</div>
 </form>
 

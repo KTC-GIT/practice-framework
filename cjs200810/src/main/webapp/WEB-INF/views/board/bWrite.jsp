@@ -13,7 +13,10 @@
 <script src="//cdn.ckeditor.com/4.16.0/standard/ckeditor.js"></script>
 <script>
 	$(document).ready(function(){
-		CKEDITOR.replace('content',{height:400});
+		CKEDITOR.replace('content',{
+			height:400,
+			filebrowserUploadUrl:"${contextpath}/file/uploadImg"
+		});
 		
 		$("#submitBtn").click(function(){
 			

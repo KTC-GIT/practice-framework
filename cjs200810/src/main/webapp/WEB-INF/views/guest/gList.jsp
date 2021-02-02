@@ -29,7 +29,7 @@
 <%@include file="/WEB-INF/views/include/slide.jsp" %>
 	
 	<div style="width:700px;margin-left:auto;margin-right:auto;padding-top:20px;">
-		<p style="text-align:right;"><a href="${contextpath}/guest/gWrite"><button>글쓰기</button></a></p>
+		<p style="text-align:right;"><a href="${contextpath}/guest/gWrite"><button class="w3-button w3-blue">글쓰기</button></a></p>
 	</div>
 <c:forEach var="vo" items="${list}">
 	<table id="gTable">
